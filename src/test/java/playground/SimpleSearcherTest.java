@@ -17,16 +17,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class JoinedSearcherTest {
-
-    private RAMDirectory index;
-    private JoinedSearcher indexManager;
-
-    @Before
-    public void initialize() {
-        this.index = new RAMDirectory();
-        this.indexManager = new JoinedSearcher();
-    }
+public class SimpleSearcherTest extends SearcherTest {
 
     @Test
     public void testCreateWriter() throws Exception {
