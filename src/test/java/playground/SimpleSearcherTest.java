@@ -55,7 +55,7 @@ public class SimpleSearcherTest extends SearcherTest {
     }
 
     private void insertDocuments() throws IOException {
-        ImmutableList<Document> docs = ImmutableList.<Document>of(getDoc("ikey1", "rotatory", null),
+        ImmutableList<Document> docs = ImmutableList.of(getDoc("ikey1", "rotatory", null),
                 getDoc("ikey2", "rotatory vertigo", null),
                 getDoc("ikey3", "absent vertigo", null)
         );
@@ -63,17 +63,5 @@ public class SimpleSearcherTest extends SearcherTest {
         IndexWriter writer = indexManager.createWriter(index);
         writer.addDocuments(docs);
         writer.commit();
-    }
-
-    public Document getDoc(String key, String name, String docType) {
-        Document doc = new Document();
-        doc.add(new TextField("key", key, Field.Store.YES));
-        doc.add(new TextField("name", name, Field.Store.YES));
-
-        if(docType != null) {
-            doc.add(new TextField("docType", docType, Field.Store.YES));
-        }
-
-        return doc;
     }
 }
